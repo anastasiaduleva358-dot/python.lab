@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Добавить фильм</h2>
+
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+
+    <input type="text" name="title" placeholder="Название"><br><br>
+    <input type="text" name="genre" placeholder="Жанр"><br><br>
+    <input type="text" name="rating" placeholder="Рейтинг"><br><br>
+    <input type="text" name="year" placeholder="Год"><br><br>
+
+    <input type="text" name="image" placeholder="Ссылка на постер"><br><br>
+
+    <button type="submit">Добавить</button>
+</form>
+
+{% endblock %}

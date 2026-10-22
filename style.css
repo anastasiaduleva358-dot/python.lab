@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #c6bcb3;
+    margin: 0;
+    color: #222;
+}
+
+/* меню */
+nav {
+    background: #222;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #9a8f75;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a:hover {
+    color: #43402f;
+    text-decoration: underline;
+}
+
+/* заголовки */
+h1, h2, h3 {
+    margin-left: 20px;
+}
+
+/* текст */
+p {
+    margin-left: 20px;
+}
+
+/* контейнер карточек */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* карточка фильма */
+.card {
+    width: 220px;
+    background: white;
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* картинки */
+.card img,
+.poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* кнопки и ссылки */
+.card a,
+button {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card a:hover,
+button:hover {
+    background: #444;
+}
+
+/* формы */
+form {
+    margin: 20px;
+}
+
+input,
+select {
+    width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    margin-bottom: 10px;
+}
+
+/* список */
+ul {
+    margin-left: 20px;
+}
+
+/* блок статистики */
+.stats-box {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ошибка */
+.error {
+    color: red;
+    font-weight: bold;
+    margin-left: 20px;
+}

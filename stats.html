@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Статистика</h2>
+
+<p>Всего: {{ total }}</p>
+<p>Средний рейтинг: {{ avg_rating }}</p>
+
+<h3>По жанрам:</h3>
+
+<ul>
+{% for g in by_genre %}
+    <li>{{ g.genre }} - {{ g.count }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

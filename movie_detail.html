@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ movie.title }}</h2>
+
+<img src="{{ movie.image }}" width="300">
+
+<p>Жанр: {{ movie.genre }}</p>
+<p>Рейтинг: {{ movie.rating }}</p>
+<p>Год: {{ movie.year }}</p>
+<p>Добавлен: {{ movie.created_at }}</p>
+
+{% endblock %}

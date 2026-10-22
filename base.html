@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Фильмы</title>
+
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Главная</a>
+    <a href="/items">Фильмы</a>
+    <a href="/add">Добавить</a>
+    <a href="/stats">Статистика</a>
+</nav>
+
+{% block content %}{% endblock %} 
+
+</body>
+</html>
