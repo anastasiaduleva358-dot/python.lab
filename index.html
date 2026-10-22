@@ -1,35 +1,128 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analysis</title>
 
-{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-<h1> Каталог фильмов</h1>
+<div class="container">
 
-<p>
-Это веб-приложение для управления коллекцией фильмов.  
-Пользователь может добавлять новые фильмы, просматривать список,  
-открывать подробную информацию и анализировать данные.
-</p>
+    <h1>Internet Store Sales Analysis</h1>
 
-<hr>
+    <div class="stats">
 
-<h2> Навигация по приложению</h2>
+        <div class="card">
+            <h3>Total Orders</h3>
+            <p>{{ total_orders }}</p>
+        </div>
 
-<ul>
-    <li><a href="/items"> Список фильмов</a> - просмотр всех записей</li>
-    <li><a href="/add"> Добавить фильм</a> - добавление нового фильма</li>
-    <li><a href="/stats"> Статистика</a> - аналитика и данные</li>
-</ul>
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <p>${{ total_revenue }}</p>
+        </div>
 
-<hr>
+        <div class="card">
+            <h3>Best Selling Product</h3>
+            <p>{{ best_selling_product }}</p>
+        </div>
 
-<h2>Возможности системы</h2>
+        <div class="card">
+            <h3>Top Category</h3>
+            <p>{{ best_category }}</p>
+        </div>
 
-<ul>
-    <li>Добавление фильмов в базу данных</li>
-    <li>Просмотр подробной информации о каждом фильме</li>
-    <li>Удаление и редактирование записей</li>
-    <li>Сортировка и фильтрация данных</li>
-    <li>Аналитика (средний рейтинг, количество по жанрам)</li>
-</ul>
+        <div class="card">
+            <h3>Top City</h3>
+            <p>{{ top_city }}</p>
+        </div>
 
-{% endblock %}
+    </div>
+
+    <h2>Filter by City</h2>
+
+    <form method="GET">
+
+        <select name="city">
+
+            <option value="All">All</option>
+
+            {% for city in cities %}
+
+                <option value="{{ city }}"
+                    {% if city == selected_city %}
+                        selected
+                    {% endif %}
+                >
+                    {{ city }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">Filter</button>
+
+    </form>
+
+    <h2>Sales by Category</h2>
+
+    <img src="{{ url_for('static', filename='chart.png') }}" class="chart">
+
+    <h2>Category Summary</h2>
+
+    <table>
+
+        <tr>
+            <th>Category</th>
+            <th>Total Sales</th>
+        </tr>
+
+        {% for row in summary %}
+
+        <tr>
+            <td>{{ row.Category }}</td>
+            <td>{{ row.Total_Price }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <h2>Orders Table</h2>
+
+    <div class="table-container">
+
+        <table>
+
+            <tr>
+
+                {% for column in orders[0].keys() %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+
+            </tr>
+
+            {% for row in orders %}
+
+            <tr>
+
+                {% for value in row.values() %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
